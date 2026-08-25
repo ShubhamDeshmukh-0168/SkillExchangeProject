@@ -1,0 +1,127 @@
+/*--------------------------- Common style --------------------------------*/
+
+:root {
+    --btn-color: #6F69E8;
+    --bg-color: #F9FAFC;
+    --txt-color: #222;
+    --txt-colorW: #fff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 50%, white 50%),
+        url('../../public/assets/image/bg-imageForStartJourneyForm.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+}
+
+button, .btn{
+    border: none;
+    color: #fff;
+    background-image: linear-gradient(30deg, #6F69E8, #332F80);
+    border-radius: 20px;
+    background-size: 100% auto;
+    font-family: inherit;
+    font-size: 17px;
+    padding: 0.6em 1.5em;
+}
+
+.btn:hover{
+    background-position: right center;
+    background-size: 200% auto;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse512 1.5s infinite;
+}
+
+@keyframes pulse512 {
+    0% {
+        box-shadow: 0 0 0 0 #05bada66;
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
+    }
+}
+
+/*-------------------------- Login page style -----------------------------------*/
+.login-container {
+    background-color: var(--txt-colorW);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.error-message {
+    position: relative;
+    top: -230px;
+    left: 370px;
+    color: red;
+}
+
+h2 {
+    color: var(--txt-color);
+    margin-bottom: 1rem;
+}
+
+.input-group {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: var(--txt-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--txt-color);
+    background-color: #fff;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--btn-color);
+}
+
+.create-account {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.create-account a {
+    color: var(--btn-color);
+    text-decoration: none;
+}
+
+.create-account a:hover {
+    text-decoration: underline;
+}
+
+/*--------------------------- Responsive Design --------------------------------*/
+@media (max-width: 768px) {
+    .login-container {
+        padding: 1.5rem;
+    }
+    .btn-login {
+        font-size: 1rem;
+    }
+}
