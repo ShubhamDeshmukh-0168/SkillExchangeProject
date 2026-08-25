@@ -1,0 +1,184 @@
+/*-------------------------- Global Styles --------------------------*/
+:root {
+  --primary-gradient: linear-gradient(#6F69E8, #332F80);
+  --btn-hover-color: #4a45a5;
+  --text-dark: #222;
+  --text-light: #f8f9fa;
+  --bg-light: #f8f9fa;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  color: var(--text-dark);
+}
+
+/*-------------------------- Hero Section --------------------------*/
+.about-hero {
+  background: url('https://images.unsplash.com/photo-1544027993-37dbfe43562a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+  background-size: cover;
+  height: 50vh;
+  color: var(--text-light);
+  position: relative;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.about-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/*-------------------------- Mission Section --------------------------*/
+.mission-section {
+  background-color: white;
+}
+
+.mission-section h2 {
+  color: #6F69E8;
+  font-weight: 700;
+}
+
+.mission-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.mission-list li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.mission-list i {
+  color: #6F69E8;
+  margin-right: 10px;
+}
+
+/*-------------------------- How It Works --------------------------*/
+.how-it-works h2 {
+  color: #6F69E8;
+  font-weight: 700;
+}
+
+.step-card {
+  background: white;
+  transition: transform 0.3s;
+  height: 100%;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+}
+
+.step-icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-gradient);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+}
+
+.step-number {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  background: #FFC200;
+  color: var(--text-dark);
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+/*-------------------------- CTA Section --------------------------*/
+.cta-section {
+  background: var(--primary-gradient);
+  color: white;
+}
+
+.btn-start-journey {
+  background: #FFC200;
+  color: var(--text-dark);
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s;
+}
+
+.btn-start-journey:hover {
+  background: #ff9900;
+  color: white;
+  transform: scale(1.05);
+}
+
+/*-------------------------- Footer --------------------------*/
+.footer {
+  background: #332F80;
+  color: white;
+}
+   
+.back-to-home-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.back-to-home-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .back-to-home-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+/*-------------------------- Responsive Design --------------------------*/
+@media (max-width: 768px) {
+  .about-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .mission-section .col-md-6, 
+  .how-it-works .col-md-4 {
+    margin-bottom: 30px;
+  }
+}

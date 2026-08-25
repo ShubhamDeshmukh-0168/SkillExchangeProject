@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About SkillExchange</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #6F69E8;
+      --secondary-color: #FB4899;
+      --bg-light: #f8f9fa;
+      --text-dark: #333;
+    }
+
+    /* Hero Section */
+    .about-hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    }
+
+    /* Team Section */
+    .team-section {
+      background-color: var(--bg-light);
+      padding: 6rem 0;
+    }
+    
+    .team-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      height: 100%;
+      border: none;
+    }
+    
+    .team-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    
+    .profile-img-container {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 2rem;
+      position: relative;
+    }
+    
+    .profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 5px solid white;
+      border-radius: 50%;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .team-card:hover .profile-img {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      padding: 6rem 0;
+      background-color: var(--bg-light);
+    }
+    
+    .step-card {
+      background: white;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      height: 100%;
+      border: none;
+      border-radius: 15px !important;
+      overflow: hidden;
+    }
+    
+    .step-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12) !important;
+    }
+    
+    .step-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.75rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .step-card:hover .step-icon {
+      transform: rotate(10deg) scale(1.1);
+    }
+    
+    .step-number {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: white;
+      color: var(--primary-color);
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      border: 3px solid var(--primary-color);
+      font-size: 1rem;
+    }
+
+    /* Mission Section */
+    .mission-section {
+      padding: 6rem 0;
+      background: white;
+    }
+
+    .mission-img {
+      border-radius: 15px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .mission-img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+
+    /* Mentors Section */
+    .mentors-section {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mentors-section::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: -50px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .mentors-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+    }
+    
+    .mentor-card {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 2.5rem;
+      height: 100%;
+      transition: all 0.4s ease;
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    
+    .mentor-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255,255,255,0.2);
+    }
+    
+    .mentor-card h3 i {
+      color: var(--secondary-color);
+      background: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 15px;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .mentor-card:hover h3 i {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    /* Timeline Section */
+    .timeline-section {
+      padding: 6rem 0;
+      background-color: var(--bg-light);
+    }
+    
+    .timeline {
+      position: relative;
+      padding-left: 60px;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 30px;
+      top: 10px;
+      bottom: 10px;
+      width: 5px;
+      background: linear-gradient(to bottom, var(--primary-color), var(--secondary-color));
+      border-radius: 10px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: 3rem;
+      padding-left: 40px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -15px;
+      top: 5px;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--primary-color);
+      border: 5px solid var(--secondary-color);
+      z-index: 1;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .timeline-item h4 {
+      color: var(--primary-color);
+      margin-bottom: 0.75rem;
+      font-weight: 700;
+    }
+    
+    .timeline-date {
+      font-size: 1rem;
+      color: var(--secondary-color);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    
+    .timeline-content {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid var(--primary-color);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+
+    .timeline-item:hover .timeline-content {
+      transform: translateX(10px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 6rem 0;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('https://images.unsplash.com/photo-1546410531-bb4caa6b424d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      text-align: center;
+    }
+    
+    .btn-start-journey {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      border: none;
+      color: white;
+      font-weight: 600;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+      box-shadow: 0 10px 25px rgba(111, 105, 232, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-start-journey:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 35px rgba(111, 105, 232, 0.4);
+      color: white;
+    }
+
+    .btn-start-journey::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    .btn-start-journey:hover::after {
+      opacity: 1;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 4rem 0;
+      background-color: #2a2a2a;
+      color: white;
+      text-align: center;
+    }
+
+    .footer-logo {
+      width: 140px;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer-logo:hover {
+      transform: scale(1.05);
+    }
+
+    /* Back to home button */
+    .back-to-home-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      z-index: 1000;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: none;
+      outline: none;
+    }
+    
+    .back-to-home-btn:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+      color: white;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .profile-img-container {
+        width: 140px;
+        height: 140px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-hero {
+        min-height: 60vh;
+        text-align: center;
+      }
+      
+      .profile-img-container {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .timeline {
+        padding-left: 40px;
+      }
+      
+      .timeline::before {
+        left: 20px;
+      }
+      
+      .timeline-item::before {
+        width: 25px;
+        height: 25px;
+        left: -12px;
+      }
+
+      .back-to-home-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.2rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .team-card, .step-card, .mentor-card {
+        margin-bottom: 2rem;
+      }
+      
+      .timeline {
+        padding-left: 30px;
+      }
+      
+      .timeline::before {
+        left: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!--------------------------------- Hero Section --------------------------------->
+  <section class="about-hero">
+    <div class="container h-100 d-flex align-items-center">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h1 class="display-3 fw-bold mb-4">Empowering Growth Through Shared Knowledge</h1>
+          <p class="lead fs-4">A platform born from the passion of four BCA graduates to make learning accessible to all</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------- Team Section --------------------------------->
+  <!--------------------------------- Team Section --------------------------------->
+<section class="team-section">
+  <div class="container">
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h2 class="display-5 fw-bold mb-3">Our Collaborative Team</h2>
+        <p class="lead">BCA 2024 Graduates | Naresh IT Java Full Stack Trainees</p>
+        <div class="divider mx-auto" style="width: 100px; height: 4px; background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); border-radius: 2px; margin: 1.5rem auto;"></div>
+      </div>
+    </div>
+    
+    <div class="row g-4">
+      <!-- Namrata Dhobale -->
+      <div class="col-md-3 col-6">
+        <div class="team-card">
+          <div class="profile-img-container">
+            <img src="../assets/image/team/namrata.jpg" alt="Namrata Dhobale" class="profile-img">
+          </div>
+          <h4 class="fw-bold mb-2">Namrata Dhobale</h4>
+          <p class="text-muted mb-3">Full Stack Development</p>
+          <p class="mb-0">Crafted intuitive user interfaces and ensured seamless user experiences across all devices.</p>
+        </div>
+      </div>
+      
+      <!-- Chanchal Sethi -->
+      <div class="col-md-3 col-6">
+        <div class="team-card">
+          <div class="profile-img-container">
+            <img src="../assets/image/team/chanchal.jpg" alt="Chanchal Sethi" class="profile-img">
+          </div>
+          <h4 class="fw-bold mb-2">Chanchal Sethi</h4>
+          <p class="text-muted mb-3">Full Stack Development</p>
+          <p class="mb-0">Engineered secure systems and optimized data management for smooth platform operations.</p>
+        </div>
+      </div>
+      
+      <!-- Gokul Lade -->
+      <div class="col-md-3 col-6">
+        <div class="team-card">
+          <div class="profile-img-container">
+            <img src="../assets/image/team/gokul.jpg" alt="Gokul Lade" class="profile-img">
+          </div>
+          <h4 class="fw-bold mb-2">Gokul Lade</h4>
+          <p class="text-muted mb-3">Full Stack Development</p>
+          <p class="mb-0">Bridged frontend and backend systems while implementing key functional components.</p>
+        </div>
+      </div>
+      
+      <!-- Vikram Gujar -->
+      <div class="col-md-3 col-6">
+        <div class="team-card">
+          <div class="profile-img-container">
+            <img src="../assets/image/team/vikram.jpg" alt="Vikram Gujar" class="profile-img">
+          </div>
+          <h4 class="fw-bold mb-2">Vikram Gujar</h4>
+          <p class="text-muted mb-3">Full Stack Development</p>
+          <p class="mb-0">Designed foundational structures and coordinated integration of all platform components.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row mt-5">
+      <div class="col-12 text-center">
+        <div class="team-note p-4 rounded-4" style="background: rgba(111, 105, 232, 0.1); max-width: 800px; margin: 0 auto;">
+          <p class="mb-0 fw-medium">Every team member contributed equally across all aspects of development, with each bringing unique strengths to create this platform together.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>  <!--------------------------------- How It Works Section --------------------------------->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="display-5 fw-bold">How SkillExchange Works</h2>
+          <p class="lead">Simple steps to start your skill exchange journey</p>
+          <div class="divider mx-auto" style="width: 100px; height: 4px; background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); border-radius: 2px; margin: 1.5rem auto;"></div>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="step-card p-4">
+            <div class="step-icon">
+              <i class="bi bi-person-plus-fill"></i>
+              <span class="step-number">1</span>
+            </div>
+            <h4 class="fw-bold mt-4 mb-3">Create Profile</h4>
+            <p class="mb-0">List skills you can teach and those you want to learn in your personalized profile.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-card p-4">
+            <div class="step-icon">
+              <i class="bi bi-search-heart-fill"></i>
+              <span class="step-number">2</span>
+            </div>
+            <h4 class="fw-bold mt-4 mb-3">Find Matches</h4>
+            <p class="mb-0">Discover partners with complementary skills using our smart matching algorithm.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="step-card p-4">
+            <div class="step-icon">
+              <i class="bi bi-arrow-left-right"></i>
+              <span class="step-number">3</span>
+            </div>
+            <h4 class="fw-bold mt-4 mb-3">Start Exchanging</h4>
+            <p class="mb-0">Teach your skill, learn theirs—begin your mutual growth journey today!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------- Mission Section --------------------------------->
+  <section class="mission-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-4 mb-lg-0">
+          <img src="https://images.unsplash.com/photo-1592524138886-f4e3170d5ea7?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+               alt="Our Mission" 
+               class="img-fluid mission-img">
+        </div>
+        <div class="col-lg-6 ps-lg-5">
+          <h2 class="display-5 fw-bold mb-4"><i class="bi bi-bullseye me-3"></i>Our Mission</h2>
+          <p class="lead mb-4">As recent graduates, we experienced firsthand how expensive quality education can be. SkillExchange was born from our desire to create a platform where knowledge sharing doesn't require financial resources.</p>
+          <ul class="list-unstyled">
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
+              <span>Democratize learning through peer-to-peer exchange</span>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
+              <span>Build a community of passionate lifelong learners</span>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <i class="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
+              <span>Empower individuals through accessible skill development</span>
+            </li>
+            <li class="d-flex align-items-start">
+              <i class="bi bi-check-circle-fill text-primary me-3 mt-1"></i>
+              <span>Create opportunities beyond financial constraints</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------- Mentors Section --------------------------------->
+  <section class="mentors-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="display-5 fw-bold mb-3">Our Guiding Mentors</h2>
+          <p class="lead">The exceptional teachers who made this project possible</p>
+          <div class="divider mx-auto" style="width: 100px; height: 4px; background: rgba(255,255,255,0.5); border-radius: 2px; margin: 1.5rem auto;"></div>
+        </div>
+      </div>
+      
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="mentor-card">
+            <h3><i class="bi bi-code-square"></i> Ravishankar Sir</h3>
+            <p class="mb-0">Our Core Java mentor who laid the programming foundation with his patient teaching and real-world examples. His "learn by doing" approach shaped our technical thinking.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="mentor-card">
+            <h3><i class="bi bi-server"></i> Mahipati Sir</h3>
+            <p class="mb-0">Advanced Java expert who taught us web development intricacies and database connectivity. His practical projects gave us confidence in backend development.</p>
+          </div>
+        </div>
+        
+        <div class="col-md-4">
+          <div class="mentor-card">
+            <h3><i class="bi bi-lightbulb"></i> Nataraj Sir</h3>
+            <p class="mb-0">Our inspiration who introduced Spring Boot and modern web development. His encouragement to build real projects directly led to SkillExchange's creation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------- Project Timeline --------------------------------->
+  <section class="timeline-section">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center">
+          <h2 class="display-5 fw-bold">Project Journey</h2>
+          <p class="lead">From classroom idea to functional platform</p>
+          <div class="divider mx-auto" style="width: 100px; height: 4px; background: linear-gradient(to right, var(--primary-color), var(--secondary-color)); border-radius: 2px; margin: 1.5rem auto;"></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-10 mx-auto">
+          <div class="timeline">
+            <div class="timeline-item">
+              <h4>Initial Concept</h4>
+              <span class="timeline-date">November 2024</span>
+              <div class="timeline-content">
+                <p>Born from a classroom discussion about educational accessibility, we envisioned a platform where skills could be exchanged without money. The idea was sketched on paper during a lunch break at Naresh IT.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <h4>Development Phase</h4>
+              <span class="timeline-date">January 2025</span>
+              <div class="timeline-content">
+                <p>Implemented core features including user authentication, profile management, and skill matching algorithms using our Java Full Stack training. Worked late nights after classes to bring the vision to life.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <h4>Beta Launch</h4>
+              <span class="timeline-date">March 2025</span>
+              <div class="timeline-content">
+                <p>Released first version to classmates and instructors, gathering valuable feedback. 50+ users signed up in the first week, validating our concept and motivating us to improve.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <h4>Current Version</h4>
+              <span class="timeline-date">June 2025</span>
+              <div class="timeline-content">
+                <p>Launched complete platform with secure messaging, skill exchange tracking, and community features. Currently serving 500+ users with successful skill exchanges happening daily.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <h4>Future Vision</h4>
+              <span class="timeline-date">2025 Roadmap</span>
+              <div class="timeline-content">
+                <p>Planning video call functionality for remote exchanges, skill verification system, and mobile app development. Aiming to reach 10,000+ users by end of 2025.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------- CTA Section --------------------------------->
+  <section class="cta-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="display-4 fw-bold mb-4">Ready to Begin Your Skill Exchange Journey?</h2>
+          <p class="lead mb-5">Join our growing community of learners and teachers today</p>
+          <a href= "/SkillExchangeProject/allUsersServlet" class="btn btn-start-journey btn-lg">
+            Get Started Now <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--------------------------------- Footer --------------------------------->
+  <footer class="footer">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <img src="../assets/image/Header_logo-2.png" alt="SkillExchange Logo" class="footer-logo mb-4">
+          <p class="mb-4">Special thanks to Naresh IT for providing us with the skills and knowledge to build this platform</p>
+          <p class="mb-0">&copy; <span id="current-year"></span> SkillExchange. All rights reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <a href="welcomePage.jsp" class="back-to-home-btn">
+    <i class="bi bi-house-door-fill"></i>
+  </a>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Start Journey Form</title>
+    <link rel="stylesheet" href="../../src/style/startJourneyForm.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Discover. Learn. Teach. Join the SkillExchange World!</h1>
+        <form action="/SkillExchangeProject/startJourneyform">
+            <input type="tel" placeholder="WhatsApp contact number" name="phoneNumber" minlength="10" maxlength="10" required>
+            <input type="email" placeholder="Email ID" name="email" required>
+            <input type="text" placeholder="Skill to Learn" name="skillToLearn" required>
+            <input type="text" placeholder="Skill to Teach" name="skillToTeach" required>
+            <input type="number" placeholder="Rate Your Skill (1-10)" min="1" max="10" name="skillRating" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
