@@ -192,7 +192,7 @@ Still inside `~/SkillExchangeProject` (so the relative path to
 **Connect as the RDS master user** — put your **RDS endpoint** and **master
 username** here:
 ```bash
-mysql -h <YOUR_RDS_ENDPOINT> -P 3306 -u <YOUR_MASTER_USERNAME> -p
+mysql -h sd.c7ssi4qo40tp.us-east-1.rds.amazonaws.com -P 3306 -u admin -p
 ```
 You'll be prompted for the **RDS master password**.
 
@@ -209,7 +209,7 @@ EXIT;
 
 **Load the schema as that new user:**
 ```bash
-mysql -h <YOUR_RDS_ENDPOINT> -P 3306 -u skillexchange -p skillexchange < database/schema.sql
+mysql -h sd.c7ssi4qo40tp.us-east-1.rds.amazonaws.com -P 3306 -u cloud123 -p skillexchange < database/schema.sql
 ```
 Enter the password you just set (`CHANGE_ME_STRONG_PASSWORD`) when prompted.
 
