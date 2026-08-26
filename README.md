@@ -231,13 +231,15 @@ and connection pool already bundled in — nothing else to install.
 
 ## 6. Deploy to Tomcat
 
-```bash
-sudo cp target/SkillExchangeProject.war /opt/tomcat10/webapps/
-sudo chown tomcat:tomcat /opt/tomcat10/webapps/SkillExchangeProject.war
-sudo tail -f /opt/tomcat10/logs/catalina.out
-```
-Watch for a line confirming deployment finished, then press `Ctrl+C`.
+cd ~/SkillExchangeProject
+# apply the same footer edit to src/main/webapp/index.html (or git pull if you've pushed it), then:
+mvn clean package
 
+sudo systemctl stop tomcat10
+sudo rm -rf /opt/tomcat10/webapps/ROOT
+sudo cp target/SkillExchangeProject.war /opt/tomcat10/webapps/ROOT.war
+sudo chown tomcat:tomcat /opt/tomcat10/webapps/ROOT.war
+sudo systemctl start tomcat10
 ---
 
 ## 7. Verify
@@ -252,19 +254,25 @@ end-to-end.
 
 ## 8. Redeploying Updates Later
 
-```bash
 cd ~/SkillExchangeProject
-git pull
+git pull                     # if you push this fix to your repo first — see note below
 mvn clean package
 
 sudo systemctl stop tomcat10
+
+# Remove the default Tomcat welcome page currently sitting at ROOT
+sudo rm -rf /opt/tomcat10/webapps/ROOT
+
+# Remove the old path-based deployment
 sudo rm -rf /opt/tomcat10/webapps/SkillExchangeProject \
             /opt/tomcat10/webapps/SkillExchangeProject.war
-sudo cp target/SkillExchangeProject.war /opt/tomcat10/webapps/
-sudo chown tomcat:tomcat /opt/tomcat10/webapps/SkillExchangeProject.war
+
+# Deploy your WAR as ROOT instead
+sudo cp target/SkillExchangeProject.war /opt/tomcat10/webapps/ROOT.war
+sudo chown tomcat:tomcat /opt/tomcat10/webapps/ROOT.war
+
 sudo systemctl start tomcat10
 sudo tail -f /opt/tomcat10/logs/catalina.out
-```
 
 ---
 
