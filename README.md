@@ -95,44 +95,31 @@ ls -la /opt/tomcat10/bin/*.sh
 
 Create the systemd service — **this is where your RDS details go**:
 
-```bash
 sudo tee /etc/systemd/system/tomcat10.service > /dev/null <<'EOF'
 [Unit]
 Description=Apache Tomcat 10
 After=network.target
-
 [Service]
 Type=forking
 User=tomcat
 Group=tomcat
-
 Environment=JAVA_HOME=/usr/lib/jvm/java-17-amazon-corretto
 Environment=CATALINA_HOME=/opt/tomcat10
 Environment=CATALINA_BASE=/opt/tomcat10
 Environment=CATALINA_PID=/opt/tomcat10/temp/tomcat.pid
 Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
-
-# ============================================================
-#  >>> YOUR RDS CONNECTION DETAILS GO HERE <<<
-#  DB_URL   -> replace REPLACE_ME_ENDPOINT with your RDS endpoint
-#  DB_USER  -> your RDS username (the app's DB user, see Step 4)
-#  DB_PASSWORD -> that user's password
-# ============================================================
-Environment=DB_URL=jdbc:mysql://sd.c7ssi4qo40tp.us-east-1.rds.amazonaws.com:3306/skillexchange?useSSL=false&serverTimezone=UTC
-Environment=admin
-Environment=cloud123
-
+Environment=DB_URL=jdbc:mysql://sd.c7ssi4qo40tp.us-east-1.rds.amazonaws.com:3306/skillexchange?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+Environment=DB_USER=admin
+Environment=DB_PASSWORD=cloud123
 ExecStart=/opt/tomcat10/bin/startup.sh
 ExecStop=/opt/tomcat10/bin/shutdown.sh
 Restart=on-failure
 RestartSec=10
-
 [Install]
 WantedBy=multi-user.target
 EOF
-
 sudo systemctl daemon-reload
-```
+sudo systemctl restart tomcat10
 
 **Example** — if your RDS endpoint is
 `skillexchange-db.abcd1234wxyz.us-east-1.rds.amazonaws.com`, your username is
