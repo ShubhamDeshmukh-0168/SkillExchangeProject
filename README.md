@@ -31,7 +31,7 @@ sudo dnf update -y
 sudo dnf install -y java-17-amazon-corretto maven git mysql
 
 # Ubuntu (alternative)
-# sudo apt update && sudo apt install -y openjdk-17-jdk maven git mysql-client
+# sudo apt update && sudo apt install -y openjdk-17-jdk maven git sudo dnf install -y mariadb105
 ```
 
 Verify:
