@@ -209,7 +209,7 @@ EXIT;
 
 **Load the schema as that new user:**
 ```bash
-mysql -h sd.c7ssi4qo40tp.us-east-1.rds.amazonaws.com -P 3306 -u cloud123 -p skillexchange < database/schema.sql
+mysql -h sd.c7ssi4qo40tp.us-east-1.rds.amazonaws.com -P 3306 -u admin -p skillexchange < database/schema.sql
 ```
 Enter the password you just set (`CHANGE_ME_STRONG_PASSWORD`) when prompted.
 
