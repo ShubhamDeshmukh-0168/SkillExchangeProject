@@ -118,9 +118,9 @@ Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC"
 #  DB_USER  -> your RDS username (the app's DB user, see Step 4)
 #  DB_PASSWORD -> that user's password
 # ============================================================
-Environment=DB_URL=jdbc:mysql://REPLACE_ME_ENDPOINT:3306/skillexchange?useSSL=false&serverTimezone=UTC
-Environment=DB_USER=REPLACE_ME_USERNAME
-Environment=DB_PASSWORD=REPLACE_ME_PASSWORD
+Environment=DB_URL=jdbc:mysql://sd.c7ssi4qo40tp.us-east-1.rds.amazonaws.com:3306/skillexchange?useSSL=false&serverTimezone=UTC
+Environment=admin
+Environment=cloud123
 
 ExecStart=/opt/tomcat10/bin/startup.sh
 ExecStop=/opt/tomcat10/bin/shutdown.sh
