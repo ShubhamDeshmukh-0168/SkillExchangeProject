@@ -26,9 +26,12 @@ ssh -i your-key.pem ec2-user@<EC2_PUBLIC_IP>          # Amazon Linux
 ## 2. Install Required Software
 
 ```bash
-# Amazon Linux 2023
-sudo dnf update -y
-sudo dnf install -y java-17-amazon-corretto maven git mysql
+
+sudo dnf install -y \
+  java-17-amazon-corretto \
+  maven \
+  git \
+  mariadb105
 
 # Ubuntu (alternative)
 # sudo apt update && sudo apt install -y openjdk-17-jdk maven git sudo dnf install -y mariadb105
